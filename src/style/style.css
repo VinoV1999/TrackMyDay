@@ -1,0 +1,294 @@
+*{
+    font-family: Calibri, sans-serif;
+    font-style: italic;
+    margin: 0;
+    padding: 0;
+}
+
+#root{
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(45deg, rgba(59,173,227,1) 0%, rgba(87,111,230,1) 25%, rgba(152,68,183,1) 51%, rgba(255,53,127,1) 100%);
+    
+}
+.continer{
+    height: 100%;
+    width: 100%;
+}
+.logInBtn{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.navBar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+}
+.activeTask{
+    padding: 3px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.header{
+    margin-left: 10px;
+    font-size: clamp(1.5rem, 2.5vw, 2rem); 
+    color: white;
+}
+.profile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+ul{
+    display: flex;
+    gap: min(7%,20px);
+    list-style: none;
+    text-decoration: none;
+    color: black;
+    font-size: clamp(0.8rem, 1.25vw, 1.5rem); 
+    
+}
+a:link { text-decoration: none; color: white;}
+
+
+a:visited { text-decoration: none; color: white;}
+
+
+a:hover { text-decoration: none; color: white;}
+
+
+a:active { text-decoration: none; color: #1Aff00;}
+
+.UserProfile{
+    margin: 10px;
+}
+.tracker{
+    display: flex;
+    flex-wrap: wrap;
+    height: 87vh;
+    width: 100%;
+    justify-content: center;
+    gap: min(3px,2%);
+}
+.timercontainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100vw;
+    height: 89vh;
+    overflow-y: auto;
+}
+.timer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: max(360px,50%);
+    min-height: 350px;
+    gap: 15px;
+    flex-direction: column;
+    padding: 10px;
+    height: fit-content;
+
+}
+.timerLable{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    height: fit-content;
+    width: max(360px,40%);
+    min-height: 150px;
+    overflow-x: auto;
+    font-size: clamp(0.8rem, 1.25vw, 1.5rem); 
+}
+.tasksContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.timerTitle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: italic;
+    font-size: clamp(1rem, 1.5vw, 2rem); 
+    padding: 15px 0;
+    color: white;
+}
+.timerDisplay{
+    height: max(300px,28vw);
+    width: max(300px,28vw);
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-image: linear-gradient(-45deg, #f6d365 0%, #fda085 51%, #f6d365 100%);
+}
+.subTimerDisplay{
+    height: 90%;
+    width: 90%;
+    border-radius: 50%;
+    backdrop-filter: blur(500px);
+    margin: 10px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bolder;
+    color: white;
+    font-size: 35px;
+}
+.task{
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: #f8f9fa;
+    margin: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+    width: fit-content;
+}
+.task:hover{
+    background-image: linear-gradient(-45deg, #f6d365 0%, #fda085 51%, #f6d365 100%);
+    color: white;
+}
+.Active{
+    background-image: linear-gradient(-45deg, #f6d365 0%, #fda085 51%, #f6d365 100%);
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.timerControllers{
+    width: 95%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    margin: 5px;
+    gap: 5px;
+}
+.controlBox{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+svg{
+    color: white;
+    font-size: clamp(1rem, 1.5vw, 2rem);
+}
+.icon{
+    padding:0px 5px;
+    
+}
+.delete{
+    color: #ff4b5b ;
+    font-size: 13px;
+}
+.labelTB{
+    margin: 5px;
+    width: 60%;
+    height: 4vh;
+    padding-inline-start: 0.5rem;
+    border-radius: 0.3rem;
+    outline: none;
+    border: none;
+    transition: 0.5s;
+}
+.labelTB:focus{
+    background-color: rgb(255, 255, 255, 0.2);
+    border-radius: 0.5rem;
+    color: white;
+    backdrop-filter: blur(500px);
+    border: solid 2px white;
+    width: 70%;
+}
+.taskTB{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    width: max-content;
+}
+.viewEfforts{
+    margin: 10px;
+}
+.loader{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    top: 0; right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    cursor: none;
+    font-size: clamp(2rem, 3vw, 2.5rem); 
+    font-weight: bolder;
+}
+.chart{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: min(100vh,400px);
+    width:  min(100vw,800px);
+}
+.viewEfforts{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin: 20px;
+    gap: 20px;
+}
+.compareEfforts{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+    
+}
+
+.inputContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: max(30%, 100px);
+    gap: 10px;
+}
+.daysInput{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    color: white;
+    font-size: clamp(0.8rem, 1.25vw, 1.5rem); 
+}
+
+.taskInput{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 42vh;
+    max-height: 50%;
+    width: 100%;
+    overflow-x: auto;
+    font-size: clamp(0.8rem, 1.25vw, 1.5rem); 
+}
+.charContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: min(40vh,400px);
+    width:  min(93vw,800px);
+}
