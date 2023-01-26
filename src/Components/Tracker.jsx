@@ -143,7 +143,8 @@ export default function Tracker() {
                     await TrackerServices.setTasksOfTheDay(user.uid, TimeCalculator.formated().format(new Date()).split('/').join('-'), taskToAdd)
                 }
                 resetTimer();
-                setClassNameOfTask(new Array(tasks.length).fill('task'))
+                setClassNameOfTask(new Array(tasks.length).fill('task'));
+                setIsLoading(false);
                 return;
             }
             const value = { startAt, 'task': tasks[i], 'Date': TimeCalculator.formated().format(new Date()).split('/').join('-') };
