@@ -179,6 +179,7 @@ a:active { text-decoration: none; color: #1Aff00;}
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 5px;
 }
 svg{
     color: white;
@@ -298,4 +299,8 @@ svg{
     justify-content: center;
     height: min(40vh,400px);
     width:  min(93vw,800px);
+}
+
+.save, .cancle{
+    font-size: clamp(1.4rem, 1.25vw, 1.5rem);
 }
