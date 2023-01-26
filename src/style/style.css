@@ -275,7 +275,7 @@ svg{
 }
 .inputTasksContainer{
     display: flex;
-    justify-content: center;
+    justify-content: center;    
     flex-wrap: wrap;
     height: 41vh;
     max-height: 50%;
