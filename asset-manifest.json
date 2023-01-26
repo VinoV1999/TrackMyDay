@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/TrackMyDay/static/css/main.418ec2c1.css",
-    "main.js": "/TrackMyDay/static/js/main.c8302d7b.js",
+    "main.js": "/TrackMyDay/static/js/main.412a08b4.js",
     "index.html": "/TrackMyDay/index.html",
     "main.418ec2c1.css.map": "/TrackMyDay/static/css/main.418ec2c1.css.map",
-    "main.c8302d7b.js.map": "/TrackMyDay/static/js/main.c8302d7b.js.map"
+    "main.412a08b4.js.map": "/TrackMyDay/static/js/main.412a08b4.js.map"
   },
   "entrypoints": [
     "static/css/main.418ec2c1.css",
-    "static/js/main.c8302d7b.js"
+    "static/js/main.412a08b4.js"
   ]
 }
