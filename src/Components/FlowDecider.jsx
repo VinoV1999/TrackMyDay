@@ -1,11 +1,11 @@
 import React from "react";
 import { UserAuth } from '../context/authContext';
-import HomePage from "./HomePage";
-import LogIn from "./LogIn";
+import HomePage from "../Components/HomePage";
+import LogIn from "../Components/LogIn";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import CompareEfforts from "./CompareEfforts";
-import ViewEfforts from "./ViewEfforts";
-import NavigationBar from "./NavigaitonBar";
+import CompareEfforts from "../Components/CompareEfforts";
+import ViewEfforts from "../Components/ViewEfforts";
+import NavigationBar from "../Components/NavigaitonBar";
 
 export default function flowDecider(){
     const {user} = UserAuth();
