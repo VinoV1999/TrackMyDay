@@ -34,7 +34,6 @@ export default function CompareEfforts() {
                     some.shift(doc.id);
                     while (days > count) {
                         data.dates.push(date);
-                        console.log(date, doc.id, doc.id == date, doc.id === date, count);
                         count++;
                         if (doc.id === date) {
                             data.percent.push(doc.data().percent);
@@ -53,10 +52,8 @@ export default function CompareEfforts() {
                     data.percent.push(0);
                     data.timeWithPercent.push(' 00 : 00 : 00 - (0%)')
                     count++;
-                    console.log(count - 1)
                     date = TimeCalculator.getyesterday(today, count);
                 }
-                console.log('some :', some);
                 setDates(data.dates.reverse());
                 setPercent(data.percent.reverse());
                 setTimeWithPercent(data.timeWithPercent.reverse());
@@ -127,7 +124,9 @@ export default function CompareEfforts() {
                             {
                                 label: "Percent ",
                                 data: percent,
+                                borderWidth:4,
                                 borderColor : ['white'],
+                                hoverBorderWidth: 5,
                                 hoverBackgroundColor: "rgba(232,105,90,0.8)",
                                 hoverBorderColor: "orange",
                                 scaleStepWidth: 1,

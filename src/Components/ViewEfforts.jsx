@@ -84,7 +84,6 @@ export default function ViewEfforts() {
         <div className="viewEfforts">
             {isLoading?<Loading/>:<></>}
             <input type="date" onChange={(e) => { setColDate(e.target.value) }} />
-            {date}
             <div className="chart">
                 {labels.length > 0 && times.length > 0 && <Pie
                     data={{
