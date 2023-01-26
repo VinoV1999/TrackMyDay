@@ -55,6 +55,9 @@ class TimeCalculator {
         const format = new Intl.DateTimeFormat('en-us');
         return format.format(date)
     }
+    formated = (date) => {
+        return new Intl.DateTimeFormat('en-us');
+    }
     monthFirst = (date) => {
         const splitedDate = date.split('-');
         return splitedDate[1] + '-' + splitedDate[0] + '-' + splitedDate[2];

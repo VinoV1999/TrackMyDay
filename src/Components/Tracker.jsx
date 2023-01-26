@@ -69,8 +69,8 @@ export default function Tracker() {
                 setActiveTaskFor(TimeCalculator.inBetween(activeTaskcoll.data().startAt.toMillis()));
             }
             else {
-                setObtainMillies(new Date(new Date().toLocaleDateString().split('/').join('-')).getTime());
-                setActiveTaskFor(TimeCalculator.inBetween(new Date(new Date().toLocaleDateString().split('/').join('-')).getTime()));
+                setObtainMillies(new Date(TimeCalculator.formated().format(new Date()).split('/').join('-')).getTime());
+                setActiveTaskFor(TimeCalculator.inBetween(new Date(TimeCalculator.formated().format(new Date()).split('/').join('-')).getTime()));
             }
         }
         setIsLoading(false);
@@ -120,11 +120,11 @@ export default function Tracker() {
             percent.date = startAt;
             percent.percent = parseFloat(taskToAdd.percent);
             if (tasks[i] === activeTask.task) {
-                const value = { startAt, 'task': "Not in Track", 'Date': new Date().toLocaleDateString().split('/').join('-') };
+                const value = { startAt, 'task': "Not in Track", 'Date': TimeCalculator.formated().format(new Date()).split('/').join('-') };
                 await TrackerServices.setActiveTask(user.uid, value);
                 if (!TimeCalculator.isToday(activeTask.Date)) {
-                    await TrackerServices.setTasksOfTheDay(user.uid, new Date().toLocaleDateString().split('/').join('-'), taskToAdd);
-                    await TrackerServices.setTaskEffortPerDay(user.uid, activeTask.task, new Date().toLocaleDateString().split('/').join('-'), percent);
+                    await TrackerServices.setTasksOfTheDay(user.uid, TimeCalculator.formated().format(new Date()).split('/').join('-'), taskToAdd);
+                    await TrackerServices.setTaskEffortPerDay(user.uid, activeTask.task, TimeCalculator.formated().format(new Date()).split('/').join('-'), percent);
                     const time = TimeCalculator.inBetween(activeTask.startAt.toMillis(), TimeCalculator.getTomorrow(new Date(activeTask.Date)));
                     taskToAdd.time = time;
                     taskToAdd.seconds = TimeCalculator.timeToSeconds(time);
@@ -136,18 +136,18 @@ export default function Tracker() {
                 } else {
                     percent.percent += taskPercent === undefined ? 0 : taskPercent.percent;
                     await TrackerServices.setTaskEffortPerDay(user.uid, activeTask.task, activeTask.Date, percent);
-                    await TrackerServices.setTasksOfTheDay(user.uid, new Date().toLocaleDateString().split('/').join('-'), taskToAdd)
+                    await TrackerServices.setTasksOfTheDay(user.uid, TimeCalculator.formated().format(new Date()).split('/').join('-'), taskToAdd)
                 }
                 resetTimer();
                 setClassNameOfTask(new Array(tasks.length).fill('task'))
                 return;
             }
-            const value = { startAt, 'task': tasks[i], 'Date': new Date().toLocaleDateString().split('/').join('-') };
+            const value = { startAt, 'task': tasks[i], 'Date': TimeCalculator.formated().format(new Date()).split('/').join('-') };
             await TrackerServices.setActiveTask(user.uid, value);
             if (activeTask.task !== "Not in Track") {
                 if (!TimeCalculator.isToday(activeTask.Date)) {
-                    await TrackerServices.setTasksOfTheDay(user.uid, new Date().toLocaleDateString().split('/').join('-'), taskToAdd);
-                    await TrackerServices.setTaskEffortPerDay(user.uid, activeTask.task, new Date().toLocaleDateString().split('/').join('-'), percent);
+                    await TrackerServices.setTasksOfTheDay(user.uid, TimeCalculator.formated().format(new Date()).split('/').join('-'), taskToAdd);
+                    await TrackerServices.setTaskEffortPerDay(user.uid, activeTask.task, TimeCalculator.formated().format(new Date()).split('/').join('-'), percent);
                     const time = TimeCalculator.inBetween(activeTask.startAt.toMillis(), TimeCalculator.getTomorrow(new Date(activeTask.Date)));
                     taskToAdd.time = time;
                     taskToAdd.seconds = TimeCalculator.timeToSeconds(time);
@@ -158,13 +158,13 @@ export default function Tracker() {
                     await TrackerServices.setTaskEffortPerDay(user.uid, activeTask.task, activeTask.Date, percent);
                 } else {
                     percent.percent += taskPercent === undefined ? 0 : taskPercent.percent;
-                    await TrackerServices.setTaskEffortPerDay(user.uid, activeTask.task, new Date().toLocaleDateString().split('/').join('-'), percent);
-                    await TrackerServices.setTasksOfTheDay(user.uid, new Date().toLocaleDateString().split('/').join('-'), taskToAdd)
+                    await TrackerServices.setTaskEffortPerDay(user.uid, activeTask.task, TimeCalculator.formated().format(new Date()).split('/').join('-'), percent);
+                    await TrackerServices.setTasksOfTheDay(user.uid, TimeCalculator.formated().format(new Date()).split('/').join('-'), taskToAdd)
                 }
             }
         }else{
             isFirst=true;
-            const value = { startAt, 'task': tasks[i], 'Date': new Date().toLocaleDateString().split('/').join('-') };
+            const value = { startAt, 'task': tasks[i], 'Date': TimeCalculator.formated().format(new Date()).split('/').join('-') };
             await TrackerServices.setActiveTask(user.uid, value);
             resetTimer();
         }
