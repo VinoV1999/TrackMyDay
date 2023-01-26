@@ -108,12 +108,14 @@ export default function CompareEfforts() {
                     Enter the Number of Days you like to compare :
                     <input type="number" min={2} max={30} value={days} onChange={(e) => { setDays(e.target.value) }} />
                 </div>
-                <div className="taskInput">
-                    {tasks.map((task, index) => {
-                        return (<div key={index} index={index} onClick={() => handleClick(index)} className={classNameOfTask[index]}>
-                            {task}
-                        </div>)
-                    })}
+                <div className="inputTasksContainer">
+                    <div className="taskInput">
+                        {tasks.map((task, index) => {
+                            return (<div key={index} index={index} onClick={() => handleClick(index)} className={classNameOfTask[index]}>
+                                {task}
+                            </div>)
+                        })}
+                    </div>
                 </div>
             </div>
             <div className="charContainer">

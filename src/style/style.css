@@ -120,7 +120,7 @@ a:active { text-decoration: none; color: #1Aff00;}
     align-items: center;
     justify-content: center;
     font-style: italic;
-    font-size: clamp(1rem, 1.5vw, 2rem); 
+    font-size: clamp(0.9rem, 1.5vw, 2rem); 
     padding: 15px 0;
     color: white;
 }
@@ -273,13 +273,22 @@ svg{
     color: white;
     font-size: clamp(0.8rem, 1.25vw, 1.5rem); 
 }
+.inputTasksContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    height: 41vh;
+    max-height: 50%;
+    width: 100%;
+}
 
 .taskInput{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    height: 42vh;
+    height: fit-content;
     max-height: 50%;
     width: 100%;
     overflow-x: auto;
