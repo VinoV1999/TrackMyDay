@@ -275,12 +275,12 @@ svg{
 }
 .inputTasksContainer{
     display: flex;
-    align-items: center;
     justify-content: center;
     flex-wrap: wrap;
     height: 41vh;
     max-height: 50%;
     width: 100%;
+    overflow-y: auto;
 }
 
 .taskInput{
@@ -289,9 +289,7 @@ svg{
     justify-content: center;
     flex-wrap: wrap;
     height: fit-content;
-    max-height: 50%;
     width: 100%;
-    overflow-x: auto;
     font-size: clamp(0.8rem, 1.25vw, 1.5rem); 
 }
 .charContainer{
