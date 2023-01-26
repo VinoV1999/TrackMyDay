@@ -49,14 +49,18 @@ class TimeCalculator {
         let dt = new Date(date);
         let beforeDay = new Date(date);
         beforeDay.setDate(dt.getDate() - days);
-        return beforeDay.toLocaleDateString().split('/').join('-');
+        return this.formateDate(beforeDay).split('/').join('-');
+    }
+    formateDate = (date) => {
+        const format = new Intl.DateTimeFormat('en-us');
+        return format.format(date)
     }
     monthFirst = (date) => {
         const splitedDate = date.split('-');
         return splitedDate[1] + '-' + splitedDate[0] + '-' + splitedDate[2];
     }
     isToday = (date) => {
-        return (new Date().toLocaleDateString()).split('/').join('-') === date
+        return (this.formateDate(new Date())).split('/').join('-') === date
     }
 }
 

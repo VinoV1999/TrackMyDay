@@ -277,7 +277,7 @@ svg{
     display: flex;
     justify-content: center;    
     flex-wrap: wrap;
-    height: 41vh;
+    height: 35vh;
     max-height: 50%;
     width: 100%;
     overflow-y: auto;

@@ -76,7 +76,8 @@ export default function ViewEfforts() {
 
     const setColDate = (date) => {
         if (date !== '') {
-            setDate(new Date(date).toLocaleDateString().split('/').join('-'));
+            const format = new Intl.DateTimeFormat('en-us');
+            setDate(format.format(new Date(date)).split('/').join('-'));
         }
     }
     return (

@@ -25,7 +25,7 @@ export default function CompareEfforts() {
             const query = await TrackerServices.getNDaysTaskEffortQuery(user.uid, selectedTask, days);
             const data = { dates: [], percent: [], timeWithPercent: [] }
             let count = 0;
-            const format = new Intl.DateTimeFormat('en-us')
+            const format = new Intl.DateTimeFormat('en-us');
             let today = format.format(new Date()).split('/').join('-');
             let date = TimeCalculator.getyesterday(today, count);
             let some = [];
