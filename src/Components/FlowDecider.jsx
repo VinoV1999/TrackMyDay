@@ -11,6 +11,7 @@ export default function flowDecider(){
     const {user} = UserAuth();
     return(
         <div className="continer">
+            it's in
             <BrowserRouter>
                 {user &&<NavigationBar/>}
                 <Routes>
