@@ -100,8 +100,12 @@ export default function Tracker() {
             const active = await TrackerServices.getActiveTask(user.uid)
             setActiveTask(active.data());
             setObtainMillies(active.data().startAt.toMillis());
-            if(isFirst)
-            setActiveTaskFor(TimeCalculator.inBetween(active.data().startAt.toMillis()));
+            if(isFirst){
+                setTimeout(() => {
+                    setActiveTaskFor(TimeCalculator.inBetween(active.data().startAt.toMillis()));
+                    console.log('flag is first : ',isFirst, TimeCalculator.inBetween(active.data().startAt.toMillis()));
+                }, 1100);
+            }
             if (!(active.data().task === 'Not in Track')) {
                 const taskEffortColl = await TrackerServices.getTaskEffortPerDay(user.uid, active.data().task, active.data().Date);
                 setTaskPercent(taskEffortColl.data());
