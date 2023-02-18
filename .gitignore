@@ -1,20 +1,17 @@
+
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
-src/config/firebase-config.js
 
 # dependencies
 
 /node_modules
 /.pnp
 .pnp.js
-src/config/firebase-config.js
 
 # testing
 /coverage
-src/config/firebase-config.js
 
 # production
 /build
-src/config/firebase-config.js
 
 # misc
 .DS_Store
