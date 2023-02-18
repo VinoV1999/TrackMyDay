@@ -4,13 +4,13 @@ import { getFirestore } from 'firebase/firestore';
 
 
 const firebaseConfig = {
-  apiKey: process.end.REACT_TRACKMYDAY_APIKEY,
-  authDomain: process.env.REACT_TRACKMYDAY_AUTHDOMAIN,
-  projectId: process.env.REACT_TRACKMYDAY_PROJECTID,
-  storageBucket: process.env.REACT_TRACKMYDAY_STORAGEBUCKET,
-  messagingSenderId: process.env.REACT_TRACKMYDAY_MESSAGINGSENDERID,
-  appId: process.env.REACT_TRACKMYDAY_APPID,
-  measurementId: process.env.REACT_TRACKMYDAY_MEASUREMENTID
+  apiKey: "AIzaSyBhjEANTvw5mh4qHs2vH-AOzFQo2V9Lyfo",
+  authDomain: "trackmyday-2fb3d.firebaseapp.com",
+  projectId: "trackmyday-2fb3d",
+  storageBucket: "trackmyday-2fb3d.appspot.com",
+  messagingSenderId: "228812064448",
+  appId: "1:228812064448:web:daea2c629a77378a1c4f25",
+  measurementId: "G-6R9FF4VWY3"
 };
 
 
