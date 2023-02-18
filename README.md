@@ -31,11 +31,11 @@ To store the user's activities have used Firebase Firestore Database. This helps
 To show the user's activities in graphical format have used Chart.js. This helps the user to get a clear view on their day to day tasks and is easy to understand.
 =======
 some of the React Concepts Have Used in this project are listed below
-# 1 useState
+# 1. useState
 To store and update data based on the needs, useState hook have been used in almost each JSX pages. 
-# 2 useEffect
+# 2. useEffect
 On load of each page i have to fetch the data that was stored in a firebase. For that, and to keep the timer update after a second useEffect hook concept is used.
-# 3 useMemo
+# 3. useMemo
 While comparing the task activites. There is many possibilities that the user can select a particular task which result in multiple rendering of same data. To avoid the unnecessary rendering useMemo hook was implemented.
  
 # 4. Condition Rendering 
@@ -43,6 +43,9 @@ To show and hide few components on screen based on the condiition. Have implemen
 
 # 5. Named Export
 In authContext Named Export concepts have used to just get a practical knowledge.
+
+# 6. React Router
+Track My Day is a small application but has three pages basically like Home, View and Compare. To create a new page have implemented React Router.
 
 # Firebase Google Authentication
 To authenticate the user have used Firebase Google Authentication. This helps to authenticate the user with their google account.
