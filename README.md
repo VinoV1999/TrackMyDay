@@ -13,7 +13,7 @@ While comparing the task activites. There is many possibilities that the user ca
 To show and hide few components on screen based on the condiition. Have implemented the concept of conditional rendering which helps to render needful components according to the user action.
 
 # 5. Named Export
-In authContext Named Export concepts have used to just get a practical knowledge.
+In authContext.js Named Export concepts have used to just get a practical knowledge.
 
 # Firebase Google Authentication
 To authenticate the user have used Firebase Google Authentication. This helps to authenticate the user with their google account.
