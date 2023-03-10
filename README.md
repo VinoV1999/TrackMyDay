@@ -10,10 +10,11 @@ On load of each page i have to fetch the data that was stored in a firebase. For
 While comparing the task activities. There are many possibilities that the user can select a particular task which results in multiple rendering of the same data. To avoid the unnecessary rendering useMemo hook was implemented.
 # 4. Condition Rendering 
 To show and hide a few components on screen based on the condition. Have implemented the concept of conditional rendering which helps to render needful components according to the user action.
-# 5. Named Export
-In authContext.js Named Export concepts have been used to just get practical knowledge.
+# 5. HOC 
+authContext.js is an Higher Order Component. have used it to manage the authentication of the user. If the use intensionally tries to access any page without login this will detect and navigate to LogIn page. Also a concept of named exports is also used in this file.
 # 6. React Router
 Track My Day is a small application but has three pages basically like Home, View and Compare. To create a new page I have implemented React Router.
+
 
 # Firebase Google Authentication
 To authenticate the user have used Firebase Google Authentication. This helps to authenticate the user with their google account.
