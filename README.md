@@ -6,7 +6,6 @@ This app will help you to track your daily activities and will provide you with 
 https://github.com/VinoV1999/TrackMyDay/assets/123581387/cece9a50-121a-445d-b397-0d4bf5a9a850
 
 
-
 some of the React Concepts Have Used in this project are listed below
 # 1. useState
 To store and update data based on the needs, useState hooks have been used in almost each JSX page.
