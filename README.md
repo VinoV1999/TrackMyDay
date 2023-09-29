@@ -1,6 +1,12 @@
 # TrackMyDay
 This app will help you to track your daily activities and will provide you with insights on how you are spending your time. It can help you to identify areas where you are wasting time and make changes to be more productive. This helped me to become more productive instead of spending on entertainment 6-8% a day.
 
+
+
+https://github.com/VinoV1999/TrackMyDay/assets/123581387/cece9a50-121a-445d-b397-0d4bf5a9a850
+
+
+
 some of the React Concepts Have Used in this project are listed below
 # 1. useState
 To store and update data based on the needs, useState hooks have been used in almost each JSX page.
