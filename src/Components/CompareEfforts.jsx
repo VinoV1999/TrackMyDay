@@ -18,6 +18,7 @@ export default function CompareEfforts() {
     const [classNameOfTask, setClassNameOfTask] = useState(() => []);
     const [selectedTask, setSelectedTask] = useState(() => '');
     const [isLoading, setIsLoading] = useState(()=>false);
+    const [totalHours, setTotalHours] = useState(()=>'');
 
     const getDatas = async () => {
         if (days > 1 && days <= 30 && selectedTask != '') {
@@ -29,6 +30,7 @@ export default function CompareEfforts() {
             let today = format.format(new Date()).split('/').join('-');
             let date = TimeCalculator.getyesterday(today, count);
             let some = [];
+            let totalHoursInPercent = 0;
             onSnapshot(query, (querySnapshot) => {
                 querySnapshot.forEach((doc) => {
                     some.shift(doc.id);
@@ -36,8 +38,9 @@ export default function CompareEfforts() {
                         data.dates.push(date);
                         count++;
                         if (doc.id === date) {
+                            totalHoursInPercent += doc.data().percent;
                             data.percent.push(doc.data().percent);
-                            data.timeWithPercent.push(TimeCalculator.percentToHrs(doc.data().percent) + ' - (' + doc.data().percent + '%)')
+                            data.timeWithPercent.push(TimeCalculator.percentToHrs(doc.data().percent) + ' - (' + parseFloat(doc.data().percent).toFixed(2) + '%)')
                             date = TimeCalculator.getyesterday(today, count);
                             break;
                         } else {
@@ -58,6 +61,7 @@ export default function CompareEfforts() {
                 setPercent(data.percent.reverse());
                 setTimeWithPercent(data.timeWithPercent.reverse());
                 setIsLoading(false);
+                setTotalHours(TimeCalculator.percentToHrs(totalHoursInPercent));
             });
         }
     }
@@ -154,7 +158,7 @@ export default function CompareEfforts() {
                                 ticks : {
                                     color : 'white'
                                 }
-                            }
+                            },
                         },
                         plugins: {
                             legend: {
@@ -167,8 +171,16 @@ export default function CompareEfforts() {
                                         return timeWithPercent[t.dataIndex];
                                     }
                                 }
+                            },
+                            title: {
+                              display: true,
+                              text: 'Totaly '+totalHours+' of '+selectedTask,
+                              color: 'white',
+                              font: {
+                                size: 16
+                              }
+                              
                             }
-
                         }
                     }}
                 />}

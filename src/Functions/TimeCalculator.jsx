@@ -17,9 +17,13 @@ class TimeCalculator {
 
     secondsToTime = (seconds) => {
         if(seconds===86400) return ' 24 : 00 : 00'
+        if(seconds > 86400){
+
+        }
         let sec = Math.floor(seconds % 60),
             min = Math.floor((seconds / 60) % 60),
             hr = Math.floor((seconds /( 60 * 60)) % 24);
+        hr += 24 * Math.floor((seconds /( 60 * 60)) / 24);
         hr = hr < 10 ? "0" + hr : hr;
         min = min < 10 ? "0" + min : min;
         sec = sec < 10 ? "0" + sec : sec;
