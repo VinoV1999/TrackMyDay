@@ -10,7 +10,7 @@ import Loading from "./Loading";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
-import AmountCalculator from "../Functions/Amount"
+import AmountCalculator from "../Functions/Amount";
 
 export default function CompareEfforts() {
   const { user } = UserAuth();
@@ -25,10 +25,17 @@ export default function CompareEfforts() {
   const [totalHours, setTotalHours] = useState(() => "");
   const [isToolsBoxOpen, setIsToolsBoxOpen] = useState(() => false);
   const [amountPerHour, setAmountPerHour] = useState(() => 500);
-  const [fromDate, setFromDate] = useState(()=> '');
+  const [fromDate, setFromDate] = useState(() => "");
+  const [needAmt, setNeedAmt] = useState(() => true);
 
-  const titleText = `Totaly ${totalHours} of ${selectedTask} ${selectedTask.toLowerCase() === 'freelancing' ? 'Earned '+AmountCalculator.getAmountFromTime(amountPerHour, totalHours) : ''}`
+  const titleText = `Totaly ${totalHours} of ${selectedTask} ${
+    selectedTask.toLowerCase() === "freelancing"
+      ? totalHours === '' || !needAmt ? '' : "Earned " +
+        AmountCalculator.getAmountFromTime(amountPerHour, totalHours)
+      : ""
+  }`;
 
+  console.log('needAmt : ', needAmt)
   const getDatas = async () => {
     if (days > 1 && days <= 30 && selectedTask != "") {
       setIsLoading(true);
@@ -218,27 +225,50 @@ export default function CompareEfforts() {
           </div>
 
           {selectedTask.toLowerCase() === "freelancing" && (
-            <div className="indInpContainer">
-              <label className="inputLabels">Amount Per Day</label>
-              <div className="inputTextBox">
-                <input
-                  style={{
-                    width: "70%",
-                    paddingLeft: "10px",
-                    paddingRight: "10px",
-                    paddingTop: "2px",
-                    paddingBottom: "2px",
-                  }}
-                  type="number"
-                  min={1}
-                  max={20000}
-                  value={amountPerHour}
-                  onChange={(e) => {
-                    setAmountPerHour(e.target.value);
-                  }}
-                />
+            <>
+              <div className="indInpContainer"
+                style={{opacity: !needAmt ? .5 : 1}}>
+                <label className="inputLabels">Amount Per Day</label>
+                <div className="inputTextBox">
+                  <input
+                    style={{
+                      width: "70%",
+                      paddingLeft: "10px",
+                      paddingRight: "10px",
+                      paddingTop: "2px",
+                      paddingBottom: "2px",
+                    }}
+                    disabled={!needAmt}
+                    type="number"
+                    min={1}
+                    max={20000}
+                    value={amountPerHour}
+                    onChange={(e) => {
+                      setAmountPerHour(e.target.value);
+                    }}
+                  />
+                </div>
               </div>
-            </div>
+              <div className="indInpContainer">
+                <label className="inputLabels">Need Amount</label>
+                <div className="">
+                  <input
+                    style={{
+                      width: "15px",
+                      paddingLeft: "10px",
+                      paddingRight: "10px",
+                      paddingTop: "2px",
+                      paddingBottom: "2px",
+                    }}
+                    type="checkBox"
+                    checked={needAmt}
+                    onChange={(e) => {
+                      setNeedAmt(e.target.checked);
+                    }}
+                  />
+                </div>
+              </div>
+            </>
           )}
         </motion.div>
         <motion.div
