@@ -249,37 +249,50 @@ svg{
     gap: 20px;
 }
 .compareEfforts{
+    position: relative;
     display: flex;
     align-items: center;
-    flex-direction: column;
+    justify-content: center;
     width: 100%;
-    gap: 10px;
+    height: 80%;
     
 }
 
 .inputContainer{
+    position: absolute;
+    top: 0;
+    right: 0;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: left;
     flex-direction: column;
-    width: 100%;
-    height: max(30%, 100px);
+    width: max(30%, 200px);
+    height: max(30%, 400px);
     gap: 10px;
+    backdrop-filter: blur(500px);
+    outline: 2px solid white;
+    margin-right: 20px;
+    border-radius: 5px;
+    padding: 10px;
+    overflow: hidden;
 }
 .daysInput{
+    width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 15px;
     color: white;
-    font-size: clamp(0.8rem, 1.25vw, 1.5rem); 
+    font-size: clamp(0.8rem, 1.1vw, 1.1rem); 
+    padding-top: 20px;
+    padding-bottom: 5px;
+    gap: 5px;
 }
 .inputTasksContainer{
     display: flex;
     justify-content: center;    
     flex-wrap: wrap;
-    height: 35vh;
-    max-height: 50%;
     width: 100%;
     overflow-y: auto;
 }
@@ -303,4 +316,40 @@ svg{
 
 .save, .cancle{
     font-size: clamp(1.4rem, 1.25vw, 1.5rem);
+}
+
+.ToolsBoxController{
+    height: 25px;
+    width: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    
+}
+.ToolsBoxControllerContainer{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding-right: 20px;
+
+}
+
+.inputLabels{
+    width: 60%;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+.inputTextBox{
+    width: 40%;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    
+}
+
+.indInpContainer{
+    width: 100%;
+    display: flex;
 }
