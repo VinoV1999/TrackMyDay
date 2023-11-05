@@ -1,5 +1,6 @@
+import TimeCalculator from "../Functions/TimeCalculator";
 import { db } from "../config/firebase-config";
-import { collection, setDoc, getDocs, getDoc, addDoc, updateDoc, doc, serverTimestamp, query, orderBy, limit} from "firebase/firestore";
+import { collection, setDoc, getDocs, getDoc, addDoc, updateDoc, doc, serverTimestamp, query, orderBy, limit, where} from "firebase/firestore";
 
 class TrackerService {
     getAllDocs = (id) => {
@@ -47,9 +48,9 @@ class TrackerService {
         const TaskEffortPerDayRef = doc(db,id,'TaskEffortPerDay',task,date);
         return setDoc(TaskEffortPerDayRef, percent);
     }
-    getNDaysTaskEffortQuery = (id,task,days) => {
+    getNDaysTaskEffortQuery = (id,task,days,from) => {
         const dayColRef = collection(db, id, 'TaskEffortPerDay', task);
-        const q = query(dayColRef, orderBy('date','desc'), limit(days));
+        const q = from === '' ? query(dayColRef, orderBy('date','desc'), limit(days)) : query(dayColRef,where('dateNow','<=', TimeCalculator.formated().format(new Date(from)).split('/').join('-')), orderBy('dateNow','desc'), limit(days)) ;
         return q;
     }
 

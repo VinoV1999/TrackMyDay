@@ -136,13 +136,12 @@ export default function Tracker() {
                     taskToAdd.percent = TimeCalculator.percentOfDay(TimeCalculator.timeToSeconds(time));
                     percent = taskPercent === undefined ? { date: startAt, percent: 0 } : taskPercent;
                     percent.percent += parseFloat(taskToAdd.percent);
-                    percent.dateNow = Date.now();
-                    console.log('percent : ',percent);
+                    percent.dateNow = activeTask.Date.split('-').map((val, index)=>index === 1 && val.length === 1 ? '0' + val: val).join('-');
                     await TrackerServices.setTaskEffortPerDay(user.uid, activeTask.task, activeTask.Date, percent);
                     await TrackerServices.setTasksOfTheDay(user.uid, activeTask.Date, taskToAdd)
                 } else {
                     percent.percent += taskPercent === undefined ? 0 : taskPercent.percent;
-                    percent.dateNow = Date.now();
+                    percent.dateNow = activeTask.Date.split('-').map((val, index)=>index === 1 && val.length === 1 ? '0' + val: val).join('-');
                     await TrackerServices.setTaskEffortPerDay(user.uid, activeTask.task, activeTask.Date, percent);
                     await TrackerServices.setTasksOfTheDay(user.uid, TimeCalculator.formated().format(new Date()).split('/').join('-'), taskToAdd)
                 }

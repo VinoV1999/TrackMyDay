@@ -35,19 +35,19 @@ export default function CompareEfforts() {
       : ""
   }`;
 
-  console.log('needAmt : ', needAmt)
   const getDatas = async () => {
     if (days > 1 && days <= 30 && selectedTask != "") {
       setIsLoading(true);
       const query = await TrackerServices.getNDaysTaskEffortQuery(
         user.uid,
         selectedTask,
-        days
+        days,
+        fromDate
       );
       const data = { dates: [], percent: [], timeWithPercent: [] };
       let count = 0;
       const format = new Intl.DateTimeFormat("en-us");
-      let today = format.format(new Date()).split("/").join("-");
+      let today = fromDate ==='' ? format.format(new Date()).split("/").join("-") : format.format(new Date(fromDate)).split("/").join("-")  ;
       let date = TimeCalculator.getyesterday(today, count);
       let some = [];
       let totalHoursInPercent = 0;
@@ -95,7 +95,7 @@ export default function CompareEfforts() {
       setDays(30);
       return;
     } else getDatas();
-  }, [days, selectedTask]);
+  }, [days, selectedTask, fromDate]);
   useEffect(() => {
     setIsLoading(true);
     getTasks();

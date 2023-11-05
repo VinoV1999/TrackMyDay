@@ -8,7 +8,6 @@ class AmountCalculator {
             style: 'currency',
             currency: 'INR',
         });
-        console.log(totalAmount)
 
         return INR.format(totalAmount);
 
