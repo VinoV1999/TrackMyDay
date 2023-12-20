@@ -24,7 +24,7 @@ export default function CompareEfforts() {
   const [isLoading, setIsLoading] = useState(() => false);
   const [totalHours, setTotalHours] = useState(() => "");
   const [isToolsBoxOpen, setIsToolsBoxOpen] = useState(() => false);
-  const [amountPerHour, setAmountPerHour] = useState(() => 500);
+  const [amountPerHour, setAmountPerHour] = useState(() => 540);
   const [fromDate, setFromDate] = useState(() => "");
   const [needAmt, setNeedAmt] = useState(() => true);
 
@@ -36,7 +36,7 @@ export default function CompareEfforts() {
   }`;
 
   const getDatas = async () => {
-    if (days > 1 && days <= 30 && selectedTask != "") {
+    if (days > 1 && days <= 60 && selectedTask != "") {
       setIsLoading(true);
       const query = await TrackerServices.getNDaysTaskEffortQuery(
         user.uid,
@@ -91,8 +91,8 @@ export default function CompareEfforts() {
     }
   };
   useMemo(() => {
-    if (days > 30) {
-      setDays(30);
+    if (days > 60) {
+      setDays(60);
       return;
     } else getDatas();
   }, [days, selectedTask, fromDate]);
