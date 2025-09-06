@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { UserAuth } from "../context/authContext";
+import { UserAuth } from "../context/AuthContext";
 import TrackerServices from "../context/trackerServices";
 import TimeCalculator from "../Functions/TimeCalculator";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
