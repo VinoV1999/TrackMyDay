@@ -296,4 +296,87 @@ export const RemoveIcon = ({
   </svg>
 );
 
+export const CalendarIcon = ({
+  className = "w-5 h-5",
+  color = "currentColor",
+}: { className?: string; color?: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth="1.5"
+    stroke={color}
+    className={className}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+    />
+  </svg>
+);
+
+
+export const ClockIcon = ({
+  className = "w-5 h-5",
+  color = "currentColor",
+}: { className?: string; color?: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth="1.5"
+    stroke={color}
+    className={className}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M12 6v6l4 2m6-2a10 10 0 11-20 0 10 10 0 0120 0z"
+    />
+  </svg>
+);
+
+
+export const FireIcon = ({
+  className = "w-5 h-5",
+  color = "currentColor",
+}: { className?: string; color?: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth="1.5"
+    stroke={color}
+    className={className}
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M12 3c.28 2.72-2.43 4.22-1.49 7.25C11.73 13.65 17 12.06 17 17a5 5 0 11-10 0c0-3.76 4-5.23 4-10 0-.74-.08-1.4-.23-2z"
+    />
+  </svg>
+);
+
+export const TodayIcon = ({
+  className = "w-5 h-5",
+  color = "currentColor",
+}: { className?: string; color?: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth={2}
+    stroke={color}
+    className={className}
+  >
+    <rect x="3" y="5" width="18" height="16" rx="2" ry="2" stroke={color} />
+    <line x1="16" y1="3" x2="16" y2="7" stroke={color} />
+    <line x1="8" y1="3" x2="8" y2="7" stroke={color} />
+    <line x1="3" y1="11" x2="21" y2="11" stroke={color} />
+    <circle cx="12" cy="16" r="1.5" fill={color} />
+  </svg>
+);
+
+
 

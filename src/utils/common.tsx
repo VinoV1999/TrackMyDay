@@ -32,35 +32,35 @@ export const sidebarRoutes: SideBarContentType[] = [
     path: "/compare",
     Icon: <CompareEffortsIcon className="w-6 h-6" />,
   },
-  {
-    id: "settings",
-    type: sidebarType.LINK,
-    title: "Settings",
-    path: "/settings",
-    Icon: <SettingsIcon className="w-5 h-5" />,
-    children: [
-      {
-        id: "account",
-        type: sidebarType.LINK,
-        title: "Account",
-        path: "/settings/account",
-        Icon: <AccountIcon className="w-6 h-6" />,
-      },
-      {
-        id: "preferences",
-        type: sidebarType.LINK,
-        title: "Preferences",
-        path: "/settings/preferences",
-        Icon: <PreferencesIcon className="w-6 h-6" />,
-      },
-    ],
-  },
+  // {
+  //   id: "settings",
+  //   type: sidebarType.LINK,
+  //   title: "Settings",
+  //   path: "/settings",
+  //   Icon: <SettingsIcon className="w-5 h-5" />,
+  //   children: [
+  //     {
+  //       id: "account",
+  //       type: sidebarType.LINK,
+  //       title: "Account",
+  //       path: "/settings/account",
+  //       Icon: <AccountIcon className="w-6 h-6" />,
+  //     },
+  //     {
+  //       id: "preferences",
+  //       type: sidebarType.LINK,
+  //       title: "Preferences",
+  //       path: "/settings/preferences",
+  //       Icon: <PreferencesIcon className="w-6 h-6" />,
+  //     },
+  //   ],
+  // },
   {
     id: "home",
     type: sidebarType.FUNCTION,
     title: "Log out",
     operation: "logout",
-    Icon: <LogoutIcon className="w-5 h-5" />,
+    Icon: <LogoutIcon className="w-6 h-6 pl-1" />,
   },
 ];
 

@@ -4,9 +4,9 @@ import TaskList from "../Components/task/TaskList";
 
 export default function homePage() {
   return (
-    <div className="flex h-screen">
+    <div className="flex gap-4 h-screen w-[99%]">
       {/* Left Half - Calendar */}
-      <div className="w-1/2 pr-4">
+      <div className="w-1/2">
         <TasksCalendar date={new Date()}/>
       </div>
 

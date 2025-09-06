@@ -1,10 +1,12 @@
 import LogIn from "../pages/LogIn";
 import Home from "../pages/Home";
+import View from "../pages/View";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { UseAuth } from "../context/AuthContext";
 import MainPage from "../layout/MainPage";
 import { UseTask } from "../context/TaskContext";
 import { useEffect } from "react";
+import Compare from "../pages/Compare";
 // import CompareEfforts from "../Components/CompareEfforts";
 // import ViewEfforts from "../Components/ViewEfforts";
 // import NavigationBar from "../Components/NavigaitonBar";
@@ -31,8 +33,8 @@ export default function FlowDecider(){
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={user?<PageWrapper child={<Home/>} />:<LogIn/>}/>
-                    {/* <Route path="/view" element={user?<ViewEfforts/>:<LogIn/>}/>
-                    <Route path="/compare" element={user?<CompareEfforts/>:<LogIn/>}/> */}
+                    <Route path="/view" element={user?<PageWrapper child={<View/>} />:<LogIn/>}/>
+                    <Route path="/compare" element={user?<PageWrapper child={<Compare/>} />:<LogIn/>}/>
                 </Routes>
             </BrowserRouter>
         </div>

@@ -11,7 +11,7 @@ const MainPage: React.FC<MainPageProps> = ({ children }) => {
     <div className="flex h-screen overflow-hidden">
       <Sidebar />
       {/* Main Content */}
-      <main className="flex-1 p-6 bg-gray-100">{children}</main>
+      <main className="flex-1 p-4 bg-gray-100">{children}</main>
     </div>
   );
 };
