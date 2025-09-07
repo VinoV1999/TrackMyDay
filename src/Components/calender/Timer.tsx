@@ -27,8 +27,6 @@ const Timer: React.FC = () => {
   // Ticking clock
   useEffect(() => {
     if (!activeTask?.startAt) return;
-    console.log("Starting timer for active task:", activeTask.startAt);
-
     const startTime = new Date(activeTask.startAt).getTime();
 
     // check if cutoff enabled

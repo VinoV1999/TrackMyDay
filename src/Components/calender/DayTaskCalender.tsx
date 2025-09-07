@@ -3,6 +3,7 @@ import { dateTitle } from "../../utils/common";
 import ToggleSwitch from "../ui/ToggleSwitch";
 import { UseTask } from "../../context/TaskContext";
 import { DayTasks } from "../../types/types";
+import { ChartIcon, ClockIcon, EndIcon, StartIcon } from "../../utils/Icons";
 
 
 const TasksCalendar: React.FC<{date: Date}> = ({date}) => {
@@ -111,26 +112,26 @@ const TasksCalendar: React.FC<{date: Date}> = ({date}) => {
             <h3 className="text-lg font-bold text-brand-700 mb-4">
               {selectedTask.task.name}
             </h3>
-            <p>
-              ⏱ Duration:{" "}
+            <p className="flex gap-2 items-center mb-2">
+              <ClockIcon className="w-6 h-6" color="#6d28d9" /> Duration:{" "}
               <span className="font-mono">
                 {getDurationInfo(selectedTask).duration}
               </span>
             </p>
-            <p>
-              📊 Day Usage:{" "}
+            <p className="flex gap-2 items-center mb-2">
+              <ChartIcon className="w-6 h-6" color="#6d28d9" /> Day Usage:{" "}
               <span className="font-bold text-brand-600">
                 {getDurationInfo(selectedTask).percent}%
               </span>
             </p>
-            <p>
-              🟢 Start:{" "}
+            <p className="flex gap-2 items-center mb-2">
+              <StartIcon className="w-6 h-6" color="#6d28d9" /> Start:{" "}
               <span className="font-mono">
                 {formatTime(selectedTask.startAt)}
               </span>
             </p>
-            <p>
-              🔴 End:{" "}
+            <p className="flex gap-2 items-center mb-2">
+              <EndIcon className="w-6 h-6" color="#6d28d9" /> End:{" "}
               {selectedTask.endAt ? (
                 <span className="font-mono">
                   {formatTime(selectedTask.endAt)}

@@ -42,3 +42,9 @@ export type ActiveTask = {
     startAt: Date;
     autoCutOff: boolean;
 }
+
+export type TimeParts = { 
+    hours: number; 
+    minutes: number; 
+    seconds: number 
+}

@@ -17,6 +17,7 @@ import {
 } from "firebase/firestore";
 import { ActiveTask, DayTasks, Task } from "../types/types";
 import { DayTasksWithoutId, TaskWithoutId } from "../context/TaskContext";
+import { da } from "date-fns/locale";
 
 enum CollectionNames {
   Tasks = "tasks",
@@ -145,9 +146,9 @@ class FirebaseClient {
       "info"
     );
     const refinedTask = Object.fromEntries(
-      Object.entries(activeTask).filter(([_, v]) => v !== undefined)
+      Object.entries(activeTask.task).filter(([_, v]) => v !== undefined)
     );
-    return setDoc(activeTaskDoc, refinedTask);
+    return setDoc(activeTaskDoc, {...activeTask, task: refinedTask});
   }
 
   // Day Tasks CRUD
@@ -191,6 +192,75 @@ class FirebaseClient {
       }
       return { id: doc.id, ...dayTaskData } as DayTasks;
     });
+  }
+
+  // fetch task details for range
+  public async getDataBetween(
+    start: Date,
+    end: Date,
+    taskIds: string[]
+  ): Promise<{
+    [key: string]: {
+      [id: string]: number;
+    };
+  }> {
+    const results: { [key: string]: { [id: string]: number } } = {};
+
+    // Generate date strings between start and end in "yyyy-mm-dd" format
+    const dateKeys = this.generateDateKeysBetween(start, end);
+
+    for (const dateKey of dateKeys) {
+      const docRef = collection(
+        db,
+        INITCOLLECTIONNAME,
+        `${this.UID}/${dateKey}`
+      );
+      const q = query(docRef, where("task.id", "in", taskIds));
+
+      const querySnapshot = await getDocs(q);
+
+      querySnapshot.forEach((doc) => {
+        const dayTaskData = doc.data();
+        dayTaskData.startAt = new Timestamp(
+          dayTaskData.startAt.seconds,
+          dayTaskData.startAt.nanoseconds
+        ).toDate();
+        if (dayTaskData.endAt) {
+          dayTaskData.endAt = new Timestamp(
+            dayTaskData.endAt.seconds,
+            dayTaskData.endAt.nanoseconds
+          ).toDate();
+        }
+        if(dayTaskData.startAt && dayTaskData.endAt){
+          const duration = dayTaskData.endAt.getTime() - dayTaskData.startAt.getTime();
+          results[dateKey] = results[dateKey] || {};
+          results[dateKey][dayTaskData.task.id] = (results[dateKey][dayTaskData.task.id] || 0) + duration;
+        }
+      });
+      
+      taskIds.forEach(id => {
+        if (!results[dateKey] || !results[dateKey][id]) {
+          results[dateKey] = {
+            ...(results[dateKey] || {}),
+            [id] : 0
+          };
+        }
+      });
+    }
+
+    return results;
+  }
+
+  private generateDateKeysBetween(start: Date, end: Date): string[] {
+    const dates: string[] = [];
+    const current = new Date(start);
+
+    while (current <= end) {
+      dates.push(current.toISOString().slice(0, 10));
+      current.setDate(current.getDate() + 1);
+    }
+
+    return dates;
   }
 }
 

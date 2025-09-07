@@ -7,28 +7,9 @@ import { Pie } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { DayTasks } from "../types/types";
 import { CalendarIcon, ClockIcon, FireIcon, TaskIcon, TodayIcon } from "../utils/Icons";
+import { brandColors } from "../utils/common";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
-
-const brandColors = [
-  "#ddd6fe", // 4.
-  "#d5cafe", // 5.
-  "#c4b5fd", // 6.
-  "#bca3fc", // 7.
-  "#b191fa", // 8.
-  "#a78bfa", // 9.
-  "#9c7df7", // 10.
-  "#8b5cf6", // 11.
-  "#834af3", // 12.
-  "#7c3aed", // 13.
-  "#6d28d9", // 14.
-  "#641fcf", // 15.
-  "#5b21b6", // 16.
-  "#4c1d95", // 17.
-  "#3f187d", // 18.
-  "#351267", // 19.
-  "#2b0e50", // 20. darkest shade
-];
 
 const View: React.FC = () => {
   const { dayTasks } = UseTask();
@@ -116,7 +97,7 @@ const View: React.FC = () => {
                   {highestTask.task.name}
                 </p>
                 <p>
-                  {Math.floor(getDurationInSeconds(highestTask) / 60)}{" "}
+                  Duration: {Math.floor(getDurationInSeconds(highestTask) / 60)}{" "}
                   mins
                 </p>
               </>

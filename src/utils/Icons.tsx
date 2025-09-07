@@ -378,5 +378,69 @@ export const TodayIcon = ({
   </svg>
 );
 
+export const StartIcon = ({
+  className = "w-5 h-5",
+  color = "currentColor",
+}: { className?: string; color?: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill={color}
+    viewBox="0 0 24 24"
+    className={className}
+  >
+    <path d="M8 5v14l11-7z" />
+  </svg>
+);
+
+
+export const EndIcon = ({
+  className = "w-5 h-5",
+  color = "currentColor",
+}: { className?: string; color?: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill={color}
+    viewBox="0 0 24 24"
+    className={className}
+  >
+    <path d="M6 4h2v16H6zM10 4h2v16h-2zM14 4h2v16h-2z" />
+  </svg>
+);
+
+
+export const ChartIcon = ({
+  className = "w-5 h-5",
+  color = "currentColor",
+}: { className?: string; color?: string }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill={color}
+    viewBox="0 0 24 24"
+    className={className}
+  >
+    <path d="M4 22h16v-2H4v2zM6 10h2v6H6v-6zm4-4h2v10h-2V6zm4 7h2v3h-2v-3z" />
+  </svg>
+);
+
+export const PlusIcon = ({
+  className = "w-5 h-5",
+  color = "currentColor",
+}: { className?: string; color?: string }) => (
+  <div
+    className={`inline-flex items-center justify-center rounded-full border p-1`}
+    style={{ borderColor: color }}
+  >
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke={color}
+      strokeWidth={2}
+      className={className}
+    >
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+    </svg>
+  </div>
+);
 
 

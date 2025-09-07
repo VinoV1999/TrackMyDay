@@ -34,6 +34,9 @@ type TaskContextType = {
   dayTasks: DayTasks[];
   addDayTask: (task: DayTasksWithoutId) => void;
   fetchDayTasks: (day: Date) => void;
+
+  // task details of range
+  fetchTaskDetails: (start: Date, end: Date, taskIds: string[]) => Promise<{ [key: string]: { [id: string]: number } } | undefined>;
 };
 
 const InitTaskContext: TaskContextType = {
@@ -54,6 +57,8 @@ const InitTaskContext: TaskContextType = {
   dayTasks: [],
   addDayTask: () => {},
   fetchDayTasks: () => {},
+
+  fetchTaskDetails: async() => {return {}},
 };
 
 const TaskContext = createContext<TaskContextType>(InitTaskContext);
@@ -282,6 +287,17 @@ export const TaskContextProvider: React.FC<{ children: ReactNode }> = ({
     setActiveTask((pre) => pre && { ...pre, autoCutOff: false });
   };
 
+  // fetch task details for range
+  const fetchTaskDetails = async (start: Date, end: Date, taskIds: string[])  => {
+    if (!client) {
+      console.error(
+        "Firebase client not initialized. Call fetchTasks with valid UID first."
+      );
+      return;
+    }
+    return await client.getDataBetween(start, end, taskIds)
+  }
+
   return (
     <TaskContext.Provider
       value={{
@@ -299,6 +315,7 @@ export const TaskContextProvider: React.FC<{ children: ReactNode }> = ({
         dayTasks,
         addDayTask,
         fetchDayTasks,
+        fetchTaskDetails
       }}
     >
       {children}
