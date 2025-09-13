@@ -3,7 +3,7 @@ import { Line } from "react-chartjs-2";
 import Chart from "chart.js/auto";
 import { onSnapshot } from "firebase/firestore";
 import { useState, useMemo, useEffect } from "react";
-import { UserAuth } from "../context/authContext";
+import { UserAuth } from "../context/AuthContext";
 import TrackerServices from "../context/trackerServices";
 import TimeCalculator from "../Functions/TimeCalculator";
 import Loading from "./Loading";

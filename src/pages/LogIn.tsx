@@ -1,9 +1,9 @@
 import React from 'react';
 import GoogleButton from 'react-google-button';
-import { UserAuth } from '../context/authContext';
+import { UseAuth } from '../context/AuthContext';
 
 export default function logIn(){
-    const { googleSignIn, googlesignOut, user} = UserAuth();
+    const { googleSignIn } = UseAuth();
     const handleGoolgeSignIn = async () =>{
         try {
             await googleSignIn();        

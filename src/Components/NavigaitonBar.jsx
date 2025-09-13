@@ -1,5 +1,5 @@
 import React from 'react';
-import { UserAuth } from "../context/authContext";
+import { UserAuth } from "../context/AuthContext";
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
