@@ -30,7 +30,7 @@ const SelectTaskFromList: React.FC<SelectTaskFromListProps> = ({
           initial={{ opacity: 0, height: 0 }}
           animate={{ opacity: 1, height: "auto" }}
           exit={{ opacity: 0, height: 0 }}
-          className="relative w-[300px]"
+          className="relative  w-[200px] md:w-[300px]"
         >
           <input
             disabled={selectedTasks.length >= maxTasks}

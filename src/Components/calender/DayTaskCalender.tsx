@@ -53,7 +53,7 @@ const TasksCalendar: React.FC<{date: Date}> = ({date}) => {
   return (
     <div className="w-full h-[calc(100vh-40px)] bg-light rounded-xl shadow border border-brand-100 p-4 overflow-y-auto">
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-lg font-semibold text-brand-700">
+        <h2 className="text-2xl md:text-lg font-semibold text-brand-700">
           {dateTitle(date)}
         </h2>
         <ToggleSwitch value={is24Hour} onChange={setIs24Hour} leftLabel="AM/PM" rightLabel="24h" />
@@ -61,7 +61,7 @@ const TasksCalendar: React.FC<{date: Date}> = ({date}) => {
 
       <div className="grid grid-cols-[60px_1fr] gap-4 relative">
         {/* Left column: Hours */}
-        <div className="flex flex-col text-sm text-gray-500">
+        <div className="flex flex-col text-lg  md:text-sm text-gray-500">
           {Array.from({ length: 24 }).map((_, i) => (
             <div key={i} className="h-16 border-t border-gray-200">
               {formatHourLabel(i)}

@@ -110,24 +110,24 @@ const Timer: React.FC = () => {
 
   return (
     <div className="bg-brand-600 text-light rounded-xl shadow p-6 flex flex-col items-center justify-center">
-      <h2 className="text-xl font-bold mb-2">Active Task</h2>
-      <p className="text-sm mb-4 opacity-90">{activeTask.task.name}</p>
+      <h2 className="text-2xl md:text-xl font-bold mb-2">Active Task</h2>
+      <p className="text-lg md:text-sm mb-4 opacity-90">{activeTask.task.name}</p>
 
-      <div className="text-6xl font-mono">{formatTime(elapsed)}</div>
+      <div className="text-8xl md:text-6xl font-mono">{formatTime(elapsed)}</div>
 
       <button
         onClick={handleStop}
-        className="mt-3 px-5 py-2 bg-brand-400 text-light rounded-xl hover:bg-brand-500 transition"
+        className="mt-3 px-5 py-2 text-xl md:text-md bg-brand-400 text-light rounded-xl hover:bg-brand-500 transition"
       >
         Stop
       </button>
       {/* AutoCutOff Hint */}
       {activeTask.autoCutOff && timeLeft !== null && timeLeft > 0 && (
-        <div className="mt-4 flex items-center gap-2 bg-brand-500/40 px-3 py-1 rounded-lg text-sm">
+        <div className="mt-4 flex items-center gap-2 bg-brand-500/40 px-3 py-1 rounded-lg text-lg md:text-sm">
           <span>Ends in {formatTime(timeLeft)}</span>
           <button
             onClick={cancelAutoCutoff}
-            className="text-gray-400 hover:text-red-400 transition"
+            className="text-red-400 md:text-gray-400 hover:text-red-400 transition"
           >
             ✕
           </button>

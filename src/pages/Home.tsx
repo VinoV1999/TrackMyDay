@@ -4,19 +4,19 @@ import TaskList from "../Components/task/TaskList";
 
 export default function homePage() {
   return (
-    <div className="flex gap-4 h-screen w-[99%]">
-      {/* Left Half - Calendar */}
-      <div className="w-1/2">
-        <TasksCalendar date={new Date()}/>
-      </div>
-
-      {/* Right Half - Timer & Tasks */}
-      <div className="w-1/2 grid grid-rows-2 gap-4 h-[calc(100vh-40px)]">
+    <div className="flex flex-col gap-4 h-full w-full md:flex-row md:w-[99%]">
+      {/* left Half - Timer & Tasks */}
+      <div className="w-full md:w-1/2 grid grid-rows-2 gap-4 h-[900px] md:h-[calc(100vh-40px)]">
         {/* Timer (Top Half) */}
         <Timer />
 
         {/* Tasks (Bottom Half) */}
         <TaskList />
+      </div>
+
+      {/* right Half - Calendar */}
+      <div className="w-full md:w-1/2 mb-4">
+        <TasksCalendar date={new Date()}/>
       </div>
     </div>
   );

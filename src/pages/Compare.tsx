@@ -150,7 +150,7 @@ function Compare() {
   console.log(data);
 
   return (
-    <div className="flex flex-col gap-4 h-screen w-[99%]">
+    <div className="flex flex-col gap-4 h-full w-[99%]">
       {/* Controls */}
       <div className="flex items-end justify-between gap-6 p-4 bg-white rounded shadow w-full">
         
@@ -181,7 +181,7 @@ function Compare() {
         </div>
         {/* Selected Tasks */}
         <div className="flex flex-col">
-          <div className="flex flex-wrap gap-2">
+          <div className="flex justify-end md:justify-start flex-wrap gap-2">
             {selectedTasks.map((task) => (
               <div
                 key={task.id}

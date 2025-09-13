@@ -18,7 +18,7 @@ export default function ToggleSwitch({
     <div onClick={() => onChange(!value)} className="flex items-center gap-4 hover:cursor-pointer">
       {/* Left Label */}
       <span
-        className={`text-sm font-semibold ${
+        className={`text-xl md:text-sm font-semibold ${
           !value ? "text-brand-700" : "text-gray-400"
         }`}
       >
@@ -43,7 +43,7 @@ export default function ToggleSwitch({
 
       {/* Right Label */}
       <span
-        className={`text-sm font-semibold ${
+        className={`text-xl md:text-sm font-semibold ${
           value ? "text-brand-700" : "text-gray-400"
         }`}
       >

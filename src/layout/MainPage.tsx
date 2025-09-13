@@ -8,10 +8,10 @@ type MainPageProps = {
 const MainPage: React.FC<MainPageProps> = ({ children }) => {
 
   return (
-    <div className="flex h-screen overflow-hidden">
+    <div className="flex flex-col-reverse h-screen overflow-hidden md:flex-row">
       <Sidebar />
       {/* Main Content */}
-      <main className="flex-1 p-6 bg-gray-100">{children}</main>
+      <main className="flex-1 p-6 bg-gray-100 overflow-y-auto md:overflow-hidden">{children}</main>
     </div>
   );
 };

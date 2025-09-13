@@ -76,17 +76,12 @@ const View: React.FC = () => {
   };
 
   return (
-    <div className="flex gap-4 h-screen  w-[99%]">
-      {/* Left Half - Calendar */}
-      <div className="w-1/2">
-        <TasksCalendar date={selectedDate} />
-      </div>
+    <div className="flex flex-col gap-4 h-full w-full md:flex-row md:w-[99%]">
+      {/* left Half - Stats */}
+      <div className="h-[900px] md:h-[calc(100vh-40px)] md:w-1/2 grid grid-cols-12 grid-rows-12">
 
-      {/* Right Half - Stats */}
-      <div className="h-[calc(100vh-40px)] w-1/2 grid grid-cols-12 grid-rows-12">
-
-        {/* Highest time-spent task */}
-        <div className="col-span-11 row-span-2 border m-2 rounded-lg p-2 shadow bg-brand-100">
+        {/* most focused task */}
+        <div className="col-span-10 md:col-span-11 row-span-2 border m-2 rounded-lg p-2 shadow bg-brand-100">
           <h2 className="text-lg font-semibold mb-2 flex gap-2 text-brand-700">
             <FireIcon className="w-6 h-6" color="#6d28d9" /> Most Focused
           </h2>
@@ -108,7 +103,7 @@ const View: React.FC = () => {
         </div>
 
         {/* Date Picker */}
-        <div onClick={() => calReg.current?.setFocus()} className="col-span-1 row-span-1 border m-2 rounded-lg bg-brand-700 shadow flex items-center justify-center cursor-pointer">
+        <div onClick={() => calReg.current?.setFocus()} className="col-span-2 md:col-span-1 row-span-1 border m-2 rounded-lg bg-brand-700 shadow flex items-center justify-center cursor-pointer">
           <DatePicker
             ref={calReg}
             selected={selectedDate}
@@ -128,7 +123,7 @@ const View: React.FC = () => {
           />
         </div>
 
-        <div onClick={() => setSelectedDate(new Date())} className="col-span-1 row-span-1 border m-2 rounded-lg bg-brand-700 shadow flex items-center justify-center cursor-pointer">
+        <div onClick={() => setSelectedDate(new Date())} className="col-span-2 md:col-span-1 row-span-1 border m-2 rounded-lg bg-brand-700 shadow flex items-center justify-center cursor-pointer">
           <TodayIcon className="w-5 h-5 text-white" color="white" />
         </div>
 
@@ -166,6 +161,12 @@ const View: React.FC = () => {
           )}
         </div>
       </div>
+
+      {/* right Half - Calendar */}
+      <div className="w-full md:w-1/2">
+        <TasksCalendar date={selectedDate} />
+      </div>
+
     </div>
   );
 };
