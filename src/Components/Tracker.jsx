@@ -103,7 +103,6 @@ export default function Tracker() {
             if(isFirst){
                 setTimeout(() => {
                     setActiveTaskFor(TimeCalculator.inBetween(active.data().startAt.toMillis()));
-                    console.log('flag is first : ',isFirst, TimeCalculator.inBetween(active.data().startAt.toMillis()));
                 }, 1100);
             }
             if (!(active.data().task === 'Not in Track')) {

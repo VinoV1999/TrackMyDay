@@ -113,7 +113,7 @@ const Timer: React.FC = () => {
       <h2 className="text-2xl md:text-xl font-bold mb-2">Active Task</h2>
       <p className="text-lg md:text-sm mb-4 opacity-90">{activeTask.task.name}</p>
 
-      <div className="text-8xl md:text-6xl font-mono">{formatTime(elapsed)}</div>
+      <div className="text-6xl sm:text-7xl md:text-6xl font-mono">{formatTime(elapsed)}</div>
 
       <button
         onClick={handleStop}

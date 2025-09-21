@@ -114,7 +114,6 @@ export const TaskContextProvider: React.FC<{ children: ReactNode }> = ({
       return;
     }
     try {
-      console.log("Adding task:", task);
       const id = await client.addTask(task);
       setTasks((prevTasks) => [...prevTasks, { ...task, id }]);
     } catch (error) {

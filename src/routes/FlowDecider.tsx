@@ -7,9 +7,6 @@ import MainPage from "../layout/MainPage";
 import { UseTask } from "../context/TaskContext";
 import { useEffect } from "react";
 import Compare from "../pages/Compare";
-// import CompareEfforts from "../Components/CompareEfforts";
-// import ViewEfforts from "../Components/ViewEfforts";
-// import NavigationBar from "../Components/NavigaitonBar";
 
 const PageWrapper: React.FC<{child: React.ReactNode}> = ({child}) => {
 

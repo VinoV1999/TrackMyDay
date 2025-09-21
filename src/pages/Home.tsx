@@ -1,3 +1,4 @@
+import { useState } from "react";
 import TasksCalendar from "../Components/calender/DayTaskCalender";
 import Timer from "../Components/calender/Timer";
 import TaskList from "../Components/task/TaskList";
@@ -16,7 +17,7 @@ export default function homePage() {
 
       {/* right Half - Calendar */}
       <div className="w-full md:w-1/2 mb-4">
-        <TasksCalendar date={new Date()}/>
+        <TasksCalendar />
       </div>
     </div>
   );
