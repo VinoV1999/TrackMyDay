@@ -10,9 +10,11 @@ import {
 import { Task } from "../../types/types";
 
 const TaskList: React.FC = () => {
-  const { tasks, activeTask, saveActiveTask, setFavouriteTask, removeTask } = UseTask();
+  const { tasks, activeTask, saveActiveTask, setFavouriteTask, removeTask } =
+    UseTask();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editTask, setEditTask] = useState<Task | undefined>(undefined);
+  const sortedTasks = tasks.sort((a, _) => (a.isFavourite ? -1 : 1));
 
   // Empty state
   if (!tasks.length) {
@@ -46,7 +48,8 @@ const TaskList: React.FC = () => {
     <div className="p-6 rounded-2xl border border-brand-100 bg-light shadow-sm">
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-2xl md:text-lg font-semibold text-brand-700 flex gap-1 items-center justify-center">
-          <TaskIcon className="w-8 h-8 md:w-5 md:h-5" color="#6d28d9" /> Your Tasks
+          <TaskIcon className="w-8 h-8 md:w-5 md:h-5" color="#6d28d9" /> Your
+          Tasks
         </h2>
         <button
           onClick={() => {
@@ -61,19 +64,26 @@ const TaskList: React.FC = () => {
 
       <div className="w-full min-h-[400px] overflow-y-auto ">
         <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-3 overflow-y-auto">
-          {tasks.sort((a, _) => a.isFavourite ? -1 : 1).map((task) => (
+          {sortedTasks.map((task) => (
             <div
               key={task.id}
-              onClick={() =>{
-                const activeTaskData = task.id === activeTask?.task.id ? undefined : {
-                  task,
-                  startAt: new Date(),
-                  autoCutOff: !!task.autoEndIn,
-                }
-                saveActiveTask(activeTaskData)
+              onClick={() => {
+                const activeTaskData =
+                  task.id === activeTask?.task.id
+                    ? undefined
+                    : {
+                        task,
+                        startAt: new Date(),
+                        autoCutOff: !!task.autoEndIn,
+                      };
+                saveActiveTask(activeTaskData);
               }}
               className={`relative p-3 rounded-xl bg-brand-50 text-brand-700 text-xl md:text-sm font-medium m-1
-                        cursor-pointer hover:bg-brand-100 transition-all shadow-sm group ${task.id === activeTask?.task.id ? "ring-2 ring-brand-400" : ""}`}
+                        cursor-pointer hover:bg-brand-100 transition-all shadow-sm group ${
+                          task.id === activeTask?.task.id
+                            ? "ring-2 ring-brand-400"
+                            : ""
+                        }`}
             >
               {/* Task Name */}
               <span>{task.name}</span>
@@ -124,7 +134,6 @@ const TaskList: React.FC = () => {
           ))}
         </div>
       </div>
-
 
       {/* Modal */}
       {isModalOpen && (

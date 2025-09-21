@@ -4,15 +4,16 @@ import ToggleSwitch from "../ui/ToggleSwitch";
 import { UseTask } from "../../context/TaskContext";
 import { DayTasks } from "../../types/types";
 import { ChartIcon, ClockIcon, EndIcon, StartIcon } from "../../utils/Icons";
+import { newDate } from "react-datepicker/dist/date_utils";
 
 
-const TasksCalendar: React.FC<{date: Date}> = ({date}) => {
+const TasksCalendar: React.FC<{date?: Date}> = ({date}) => {
   const { dayTasks, fetchDayTasks } = UseTask();
   const [selectedTask, setSelectedTask] = useState<DayTasks | null>(null);
   const [is24Hour, setIs24Hour] = useState(false);
 
   useEffect(() => {
-    fetchDayTasks(date);
+    fetchDayTasks(date || new Date());
   }, [date]);
 
   const formatHourLabel = (h: number) => {
@@ -54,7 +55,7 @@ const TasksCalendar: React.FC<{date: Date}> = ({date}) => {
     <div className="w-full h-[calc(100vh-40px)] bg-light rounded-xl shadow border border-brand-100 p-4 overflow-y-auto">
       <div className="flex justify-between items-center mb-4">
         <h2 className="text-2xl md:text-lg font-semibold text-brand-700">
-          {dateTitle(date)}
+          {dateTitle(date || new Date())}
         </h2>
         <ToggleSwitch value={is24Hour} onChange={setIs24Hour} leftLabel="AM/PM" rightLabel="24h" />
       </div>
