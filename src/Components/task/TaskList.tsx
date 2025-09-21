@@ -32,7 +32,7 @@ const TaskList: React.FC = () => {
 
         {/* Modal */}
         {isModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
             <AddTaskForm
               closeModal={() => setIsModalOpen(false)}
               existingTask={undefined}
@@ -137,7 +137,7 @@ const TaskList: React.FC = () => {
 
       {/* Modal */}
       {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60">
           <AddTaskForm
             closeModal={() => {
               setIsModalOpen(false);

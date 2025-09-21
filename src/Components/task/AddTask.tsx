@@ -91,13 +91,13 @@ const AddTaskForm: React.FC<AddTaskFormProps> = ({
       <button
         type="button"
         onClick={() => closeModal(false)}
-        className="absolute top-3 right-3 text-gray-400 hover:text-white"
+        className="absolute top-3 right-4 text-gray-400 hover:text-white"
       >
         ✕
       </button>
       <form
         onSubmit={handleSubmit}
-        className="bg-brand-800 p-6 rounded-2xl shadow-lg flex flex-col gap-5 max-w-md"
+        className="bg-brand-800 m-2 p-4 md:p-6 rounded-2xl shadow-lg flex flex-col gap-5 max-w-md"
       >
         <h2 className="text-xl font-semibold text-white text-start">
           {existingTask ? "Edit Task" : "Add New Task"}
